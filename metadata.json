@@ -1,0 +1,6 @@
+{
+  "name": "VELUX",
+  "description": "An ultra-dark, cinematic, and editorial luxury event promotion platform featuring Africa's most curated experiences.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

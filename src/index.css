@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Cormorant Garamond", serif;
+  --font-sans: "DM Sans", sans-serif;
+  --font-mono: "DM Mono", monospace;
+  
+  --color-luxury-bg: #08080C;
+  --color-luxury-surface: #111118;
+  --color-luxury-hover: #16161F;
+  --color-luxury-border: rgba(255, 255, 255, 0.06);
+  --color-luxury-gold: #B8973A;
+  --color-luxury-gold-light: #D4AF5A;
+  --color-luxury-primary: #F0EDE6;
+  --color-luxury-secondary: #7A7A8A;
+  --color-luxury-muted: #3A3A4A;
+}
+
+body {
+  background-color: #08080C;
+  color: #F0EDE6;
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Utilities / Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #08080C;
+}
+::-webkit-scrollbar-thumb {
+  background: #1C1C28;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B8973A;
+}
+
+/* Diagonal Gold Line Texture overlay classes */
+.gold-diagonal {
+  position: relative;
+  overflow: hidden;
+}
+
+.gold-diagonal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    -25deg,
+    transparent,
+    transparent 15px,
+    rgba(184, 151, 58, 0.04) 15px,
+    rgba(184, 151, 58, 0.04) 16px
+  );
+  pointer-events: none;
+}
+
+/* Animated marquee marquee loop */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
