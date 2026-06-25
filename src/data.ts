@@ -1,4 +1,4 @@
-import { EventItem, PackageItem, TestimonialItem } from './types';
+import { EventItem, PackageItem, TestimonialItem, ReviewItem } from './types';
 
 export const EVENTS_DATA: EventItem[] = [
   {
@@ -12,6 +12,7 @@ export const EVENTS_DATA: EventItem[] = [
     formattedPrice: '$450',
     organizer: 'Presented by Silicon Valley Tech Media',
     isFeatured: true,
+    isPast: true,
     description: 'Silicon Valley Tech Summit 2025 brings together tech leaders, ecosystem builders, corporates, international investors, and startups from across the country. The summit delivers unmatched opportunities to connect, network, and co-create future solutions. Over two intensive days, we explore the frontiers of fintech, artificial intelligence, climate technology, and scaling across global borders.\n\nDelve deep into curated panels, masterclasses, and executive fireside chats led by visionary founders. Discover cutting-edge technological advancements, build valuable cross-border partnerships, and gain practical insights from leaders shaping the digital ecosystem of tomorrow.\n\nHosted at the prestigious Moscone Center in downtown San Francisco, the summit features double-track speaker stages, exclusive networking lounges, and interactive product demo showcases. Secure your seat today to be part of the nation\'s primary digital transformation dialogue.',
     imageUrl: 'https://i.pinimg.com/1200x/c3/20/7d/c3207d2f303de1de4bf2a14fcb76bd10.jpg',
   },
@@ -26,6 +27,7 @@ export const EVENTS_DATA: EventItem[] = [
     formattedPrice: '$45',
     organizer: 'Presented by LA House Collective',
     isFeatured: false,
+    isOverdue: true,
     description: 'A premium electronic, deep house, and indie dance night featuring guest selectors from across the globe. Join us high above the Los Angeles skyline as the sun dips below the horizon, bathing the rooftop in golden hues. This is an intimate gathering for true audiophiles and connoisseurs of deep rhythms.\n\nEnjoy hand-crafted herbal cocktails, curated small plates, and custom visual projections paired perfectly with premium ambient and rhythmic progressions. Dress code is high-end minimalism.',
     imageUrl: 'https://i.pinimg.com/1200x/79/30/0c/79300ceec670c8b6f122acca7dcc2b9c.jpg',
   },
@@ -40,6 +42,7 @@ export const EVENTS_DATA: EventItem[] = [
     formattedPrice: 'FREE',
     organizer: 'Presented by West Coast Cuisines',
     isFeatured: false,
+    isPast: true,
     description: 'A grand celebration of coastal, regional, and national culinary arts situated on the ocean breeze at Santa Monica Waterfront. Taste your way through over forty curated artisan booths showcasing authentic coastal street foods, contemporary fusion cuisines, and masterclasses from award-winning regional chefs.\n\nExperience live acoustic stages, interactive mocktail mixology workshops, and organic fresh-produce markets. Admission is completely complimentary, but reservations are mandatory to regulate access.',
     imageUrl: 'https://i.pinimg.com/736x/94/fb/94/94fb944160b705d86d10595b469d7a82.jpg',
   },
@@ -54,6 +57,7 @@ export const EVENTS_DATA: EventItem[] = [
     formattedPrice: '$150',
     organizer: 'Presented by GrowthX US',
     isTrending: true,
+    isOverdue: true,
     description: 'Unlocking the exact playbook for scaling modern digital consumer products across North American and global markets. This highly hands-on technical session details customer acquisition strategies, retention loops, performance marketing budget optimization, and utilizing zero-party data.\n\nParticipants will analyze real regional case studies and build their own custom growth models. Strictly limited to fifty selected executives and high-potential marketing leaders.',
     imageUrl: 'https://i.pinimg.com/1200x/9d/1e/07/9d1e0795ab13c08779293f2eed437777.jpg',
   },
@@ -454,4 +458,207 @@ export const WHO_SHOULD_ATTEND = [
   'Venture Investors and Angel Syndicates seeking premium pipelines and ecosystem interactions.',
   'Corporate Directors exploring partnership integration and digital infrastructure technologies.',
   'Product Managers and Software Architects building robust, high-traffic consumer models.'
+];
+
+export const REVIEWS_DATA: ReviewItem[] = [
+  {
+    id: 'r1',
+    name: 'Sarah Jenkins',
+    initials: 'SJ',
+    role: 'Founder',
+    company: 'Nexus Labs',
+    rating: 5,
+    comment: 'Absolutely stellar organization. The curation of attendees made the networking priceless. I’ve made three critical partnerships here.',
+    date: '2 weeks ago'
+  },
+  {
+    id: 'r2',
+    name: 'Marcus Vance',
+    initials: 'MV',
+    role: 'Creative Director',
+    company: 'Studio Overlap',
+    rating: 5,
+    comment: 'The ambiance, sound quality, and overall vibe were immaculate. VELUX knows how to partner with the absolute best organizers.',
+    date: '1 month ago'
+  },
+  {
+    id: 'r3',
+    name: 'Elena Rostova',
+    initials: 'ER',
+    role: 'Principal Investor',
+    company: 'Vanguard Capital',
+    rating: 5,
+    comment: 'Exceeded all expectations. High-caliber speakers, seamless check-in, and wonderful hospitality. An elite experience overall.',
+    date: '3 weeks ago'
+  },
+  {
+    id: 'r4',
+    name: 'David Chen',
+    initials: 'DC',
+    role: 'VP of Product',
+    company: 'CloudScale Inc.',
+    rating: 5,
+    comment: 'The digital flow, live coordination, and attention to detail set a new standard for modern premium gatherings. Brilliant experience.',
+    date: '3 days ago'
+  },
+  {
+    id: 'r5',
+    name: 'Amina Diop',
+    initials: 'AD',
+    role: 'Curator',
+    company: 'Sahel Collective',
+    rating: 5,
+    comment: 'A beautiful fusion of exquisite art, elite sound systems, and visionary minds. A masterclass in experiential event promotion.',
+    date: '2 weeks ago'
+  },
+  {
+    id: 'r6',
+    name: 'Carlos Mendez',
+    initials: 'CM',
+    role: 'Venture Partner',
+    company: 'Altaire Ventures',
+    rating: 5,
+    comment: 'The sheer quality of peer-to-peer conversations here is unrivaled. It is an invaluable channel for sourcing elite opportunities.',
+    date: '1 week ago'
+  },
+  {
+    id: 'r7',
+    name: 'Olivia Sterling',
+    initials: 'OS',
+    role: 'Luxury Editor',
+    company: 'Prestige Magazine',
+    rating: 5,
+    comment: 'A masterclass in ultra-curation. From the custom lighting and beverage programs to the elite guest list, everything was flawless.',
+    date: '4 days ago'
+  },
+  {
+    id: 'r8',
+    name: 'Liam Gallagher',
+    initials: 'LG',
+    role: 'Lead Artist',
+    company: 'Deep Horizon',
+    rating: 5,
+    comment: 'The acoustic design and sound staging were pristine. The crowd energy was electric, intimate, and highly respectful.',
+    date: '1 month ago'
+  },
+  {
+    id: 'r9',
+    name: 'Chloe Wang',
+    initials: 'CW',
+    role: 'Staff Engineer',
+    company: 'Innovate AI',
+    rating: 5,
+    comment: 'So incredibly inspiring to be in a room full of genuine visionaries and builders. VELUX curation delivers incredible value.',
+    date: '2 weeks ago'
+  },
+  {
+    id: 'r10',
+    name: 'Jameson Cole',
+    initials: 'JC',
+    role: 'Culinary Critic',
+    company: 'Metropolitan Food Guide',
+    rating: 5,
+    comment: 'An absolute sensory masterpiece. The level of detail in the gastronomic showcase was sublime and highly sophisticated.',
+    date: '5 days ago'
+  },
+  {
+    id: 'r11',
+    name: 'Sophia Loren',
+    initials: 'SL',
+    role: 'Brand Lead',
+    company: 'Elegance Group',
+    rating: 5,
+    comment: 'The execution was smooth, coordinates were precise, and the demographic was highly professional and sophisticated.',
+    date: '3 weeks ago'
+  },
+  {
+    id: 'r12',
+    name: 'Derrick Rose',
+    initials: 'DR',
+    role: 'Angel Investor',
+    company: 'Rose Syndicate',
+    rating: 5,
+    comment: 'VELUX promotional concierge is entirely unmatched. They respect guests’ time and deliver high-utility VIP placements.',
+    date: '2 months ago'
+  },
+  {
+    id: 'r13',
+    name: 'Isabella Rossi',
+    initials: 'IR',
+    role: 'SaaS Founder',
+    company: 'FlowMetric',
+    rating: 5,
+    comment: 'Exceptional panel topics, highly interactive workshops, and beautiful networking lounges. A pristine executive format.',
+    date: '2 weeks ago'
+  },
+  {
+    id: 'r14',
+    name: 'Nikhil Sharma',
+    initials: 'NS',
+    role: 'Strategy Consultant',
+    company: 'Omni Partners',
+    rating: 5,
+    comment: 'Perfect timing, gorgeous stage layouts, and extremely high-value panel discussions. A flawless executive experience.',
+    date: '1 week ago'
+  },
+  {
+    id: 'r15',
+    name: 'Emma Watson',
+    initials: 'EW',
+    role: 'VP of Marketing',
+    company: 'Veritas Media',
+    rating: 5,
+    comment: 'Seamless ticket redemption, great space allocation, and incredibly clear communication beforehand. Top-tier logistics.',
+    date: '4 weeks ago'
+  },
+  {
+    id: 'r16',
+    name: 'Xavier de Souza',
+    initials: 'XS',
+    role: 'Director of Sound',
+    company: 'Sonic Laboratories',
+    rating: 5,
+    comment: 'An exquisite auditory journey. The high-fidelity audio system and acoustic treatment in the space was world-class.',
+    date: '2 weeks ago'
+  },
+  {
+    id: 'r17',
+    name: 'Maya Lin',
+    initials: 'ML',
+    role: 'Architectural Director',
+    company: 'Form & Space',
+    rating: 5,
+    comment: 'Outstanding visual flow and spatial curation. They successfully elevated the historic venue into a contemporary wonder.',
+    date: '3 weeks ago'
+  },
+  {
+    id: 'r18',
+    name: 'Rachel Green',
+    initials: 'RG',
+    role: 'Growth Strategist',
+    company: 'Aura Agency',
+    rating: 5,
+    comment: 'The brand integration was sophisticated and non-intrusive. A perfect showcase of high-end, high-impact experiential marketing.',
+    date: '1 week ago'
+  },
+  {
+    id: 'r19',
+    name: 'Alexander Wright',
+    initials: 'AW',
+    role: 'Managing Director',
+    company: 'Ascent Equity',
+    rating: 5,
+    comment: 'An invaluable networking environment. I secured multiple follow-up meetings with leading executive decision-makers.',
+    date: '5 days ago'
+  },
+  {
+    id: 'r20',
+    name: 'Zoe Kravitz',
+    initials: 'ZK',
+    role: 'Principal Planner',
+    company: 'Muse Event Design',
+    rating: 5,
+    comment: 'As a professional event coordinator, I am thoroughly impressed by the absolute level of operational precision and service quality.',
+    date: '2 weeks ago'
+  }
 ];

@@ -52,15 +52,7 @@ export default function Navbar({ activePage, onNavigate }: NavbarProps) {
         })}
       </div>
 
-      {/* Desktop Call to Action */}
-      <div className="hidden md:block">
-        <button
-          onClick={() => handleLinkClick('submit')}
-          className="border border-luxury-gold text-luxury-gold bg-transparent px-8 py-3 text-[12px] tracking-[0.1em] font-sans font-normal uppercase rounded-[2px] transition-all duration-300 hover:bg-luxury-gold hover:text-luxury-bg hover:shadow-[0_0_15px_rgba(184,151,58,0.2)] cursor-pointer"
-        >
-          PROMOTE YOUR EVENT
-        </button>
-      </div>
+      {/* Desktop Call to Action removed as per user request */}
 
       {/* Mobile Toggle Button */}
       <div className="md:hidden flex items-center">

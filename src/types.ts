@@ -11,6 +11,8 @@ export interface EventItem {
   organizer: string;
   isFeatured?: boolean;
   isTrending?: boolean;
+  isPast?: boolean;
+  isOverdue?: boolean;
   imageAccentColor?: string; // CSS-based color styling
   imageUrl?: string;
 }
@@ -32,6 +34,17 @@ export interface TestimonialItem {
   quote: string;
   author: string;
   role: string;
+}
+
+export interface ReviewItem {
+  id: string;
+  name: string;
+  initials: string;
+  role: string;
+  company?: string;
+  rating: number; // 5
+  comment: string;
+  date: string;
 }
 
 export type ActivePage = 'home' | 'discover' | 'single-event' | 'submit' | 'about';

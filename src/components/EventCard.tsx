@@ -29,7 +29,9 @@ export default function EventCard({ event, onClick, variant = 'default' }: Event
               src={event.imageUrl}
               alt={event.title}
               referrerPolicy="no-referrer"
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              className={`absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ${
+                (event.isPast || event.isOverdue) ? 'grayscale-[30%] opacity-80' : ''
+              }`}
             />
           ) : (
             /* Centered generic label if no image is provided */
@@ -38,8 +40,24 @@ export default function EventCard({ event, onClick, variant = 'default' }: Event
             </span>
           )}
 
+          {/* Red diagonal watermark overlay */}
+          {(event.isPast || event.isOverdue) && (
+            <div className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center overflow-hidden">
+              <div 
+                className="bg-red-600/90 text-white font-mono text-[10px] sm:text-[11px] tracking-[0.25em] font-bold py-1 px-16 uppercase whitespace-nowrap shadow-[0_0_15px_rgba(220,38,38,0.4)] border-y border-red-500/50"
+                style={{
+                  transform: 'rotate(-25deg)',
+                  width: '140%',
+                  textAlign: 'center',
+                }}
+              >
+                {event.isOverdue ? 'OVERDUE' : 'PAST EVENT'}
+              </div>
+            </div>
+          )}
+
           {/* Golden View overlay on hover */}
-          <div className="absolute inset-0 bg-luxury-bg/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <div className="absolute inset-0 bg-luxury-bg/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
             <span className="font-mono text-[12px] tracking-[0.2em] text-luxury-gold font-medium">
               VIEW EVENT →
             </span>
@@ -48,9 +66,21 @@ export default function EventCard({ event, onClick, variant = 'default' }: Event
 
         {/* Card Metadata */}
         <div className="flex items-center justify-between mt-5 mb-3">
-          <span className="font-mono text-[11px] tracking-[0.12em] text-luxury-gold uppercase">
-            {event.date}
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-[11px] tracking-[0.12em] text-luxury-gold uppercase">
+              {event.date}
+            </span>
+            {event.isOverdue && (
+              <span className="bg-red-950/80 text-red-500 border border-red-800/30 font-mono text-[9px] tracking-widest uppercase px-1.5 py-0.5 rounded-[2px] font-semibold">
+                OVERDUE
+              </span>
+            )}
+            {event.isPast && !event.isOverdue && (
+              <span className="bg-white/5 text-luxury-secondary border border-white/10 font-mono text-[9px] tracking-widest uppercase px-1.5 py-0.5 rounded-[2px]">
+                PAST
+              </span>
+            )}
+          </div>
           <span className="font-mono text-[11px] tracking-[0.12em] text-luxury-secondary uppercase">
             {event.city}
           </span>

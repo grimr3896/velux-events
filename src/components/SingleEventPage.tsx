@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { EventItem } from '../types';
-import { EVENTS_DATA, AGENDA_DATA, WHO_SHOULD_ATTEND } from '../data';
+import { EVENTS_DATA, AGENDA_DATA, WHO_SHOULD_ATTEND, REVIEWS_DATA } from '../data';
 import EventCard from './EventCard';
-import { Calendar, MapPin, DollarSign, Clock, ShieldAlert, CheckCircle2 } from 'lucide-react';
+import { Calendar, MapPin, DollarSign, Clock, ShieldAlert, CheckCircle2, Star } from 'lucide-react';
 
 interface SingleEventPageProps {
   event: EventItem;
@@ -15,6 +15,7 @@ export default function SingleEventPage({ event, onSelectEvent, onNavigate }: Si
   const [bookingName, setBookingName] = useState('');
   const [bookingEmail, setBookingEmail] = useState('');
   const [bookingSuccess, setBookingSuccess] = useState(false);
+  const [showAllReviews, setShowAllReviews] = useState(false);
 
   // Retrieve 3 related events (exclude current event)
   const relatedEvents = EVENTS_DATA.filter((e) => e.id !== event.id).slice(0, 3);
@@ -40,15 +41,44 @@ export default function SingleEventPage({ event, onSelectEvent, onNavigate }: Si
               src={event.imageUrl}
               alt={event.title}
               referrerPolicy="no-referrer"
-              className="absolute inset-0 w-full h-full object-cover animate-fade-in"
+              className={`absolute inset-0 w-full h-full object-cover animate-fade-in ${
+                (event.isPast || event.isOverdue) ? 'grayscale-[30%] opacity-80' : ''
+              }`}
             />
             {/* Ambient vignette and background gradient overlays to ensure text readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-luxury-bg via-luxury-bg/70 to-luxury-bg/20" />
             <div className="absolute inset-0 bg-black/40 animate-fade-in" />
           </>
         )}
+
+        {/* Red diagonal watermark overlay for single event hero banner */}
+        {(event.isPast || event.isOverdue) && (
+          <div className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center overflow-hidden">
+            <div 
+              className="bg-red-600/95 text-white font-mono text-[14px] md:text-[18px] tracking-[0.3em] font-bold py-2.5 px-32 uppercase whitespace-nowrap shadow-[0_0_25px_rgba(220,38,38,0.5)] border-y border-red-500/50"
+              style={{
+                transform: 'rotate(-20deg)',
+                width: '160%',
+                textAlign: 'center',
+              }}
+            >
+              {event.isOverdue ? 'OVERDUE' : 'PAST EVENT'}
+            </div>
+          </div>
+        )}
+
         {/* Category Overlay tag */}
         <div className="max-w-7xl mx-auto w-full mb-4 relative z-10">
+          {event.isOverdue && (
+            <span className="font-mono text-[11px] tracking-[0.25em] text-red-500 uppercase px-4 py-1.5 border border-red-500/30 bg-red-950/90 rounded-[4px] inline-block mb-3 mr-3 font-semibold shadow-[0_0_15px_rgba(220,38,38,0.2)] animate-pulse">
+              OVERDUE
+            </span>
+          )}
+          {event.isPast && !event.isOverdue && (
+            <span className="font-mono text-[11px] tracking-[0.25em] text-red-400 uppercase px-4 py-1.5 border border-red-400/30 bg-red-950/90 rounded-[4px] inline-block mb-3 mr-3 font-semibold">
+              PAST EVENT
+            </span>
+          )}
           <span className="font-mono text-[11px] tracking-[0.25em] text-luxury-gold uppercase px-4 py-1.5 border border-luxury-gold/30 bg-luxury-bg/90 rounded-[4px] inline-block mb-3">
             EVENT PROFILE
           </span>
@@ -179,22 +209,24 @@ export default function SingleEventPage({ event, onSelectEvent, onNavigate }: Si
                 </div>
               </div>
 
-              {/* GET TICKETS button */}
-              <button
-                onClick={() => setShowBookingModal(true)}
-                className="w-full bg-luxury-gold text-luxury-bg border border-luxury-gold font-sans text-[12px] font-medium tracking-[0.12em] uppercase py-4 rounded-[2px] transition-all duration-300 hover:bg-transparent hover:text-luxury-gold hover:shadow-[0_0_15px_rgba(184,151,58,0.2)] cursor-pointer text-center mb-3"
-              >
-                GET TICKETS →
-              </button>
 
-              <button
-                onClick={() => alert('Calendar event (.ics) download initialized successfully.')}
-                className="w-full border border-white/10 text-luxury-primary bg-transparent font-sans text-[12px] tracking-[0.1em] uppercase py-3.5 rounded-[2px] transition-all hover:border-white/30 cursor-pointer text-center"
-              >
-                ADD TO CALENDAR
-              </button>
 
               <hr className="border-white/[0.03] my-6" />
+
+              {/* Past/Overdue Booking warning banner */}
+              {(event.isPast || event.isOverdue) && (
+                <div className="bg-red-950/20 border border-red-900/30 rounded-[2px] p-4 text-left mb-6">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                    <span className="font-mono text-[11px] tracking-[0.2em] text-red-400 uppercase font-bold">
+                      {event.isOverdue ? 'Overdue Status Active' : 'Past Event Status'}
+                    </span>
+                  </div>
+                  <p className="font-sans text-[12px] text-red-200/70 leading-relaxed font-light">
+                    This event was scheduled for {event.fullDate}. Booking and registration lines are now officially closed.
+                  </p>
+                </div>
+              )}
 
               {/* Organizer Detail block */}
               <div className="text-left">
@@ -231,6 +263,92 @@ export default function SingleEventPage({ event, onSelectEvent, onNavigate }: Si
           </div>
         </div>
       </div>
+
+      {/* ATTENDEE REVIEWS SECTION */}
+      <section id="reviews-section" className="border-t border-luxury-border py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="pb-6 mb-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div>
+            <span className="font-mono text-[11px] tracking-[0.15em] text-luxury-gold uppercase font-semibold block mb-2">
+              / ATTENDEE REVIEWS & ACCLAIM
+            </span>
+            <h2 className="font-display font-light text-[32px] md:text-[40px] text-luxury-primary tracking-tight">
+              What the Community Says
+            </h2>
+          </div>
+          
+          {/* Summary Ratings Badge */}
+          <div className="bg-luxury-surface/80 border border-luxury-border p-4 rounded-[2px] flex items-center gap-6 self-start md:self-auto">
+            <div className="text-left">
+              <div className="flex items-center gap-1">
+                <span className="font-display font-medium text-[28px] text-luxury-primary leading-none">4.9</span>
+                <span className="font-sans text-[14px] text-luxury-secondary">/ 5.0</span>
+              </div>
+              <p className="font-mono text-[9px] tracking-widest text-luxury-muted uppercase mt-1">Verified Rating</p>
+            </div>
+            <div className="h-8 w-px bg-white/10" />
+            <div className="text-left">
+              <div className="flex text-luxury-gold gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={14} className="fill-luxury-gold stroke-none" />
+                ))}
+              </div>
+              <p className="font-mono text-[9px] tracking-widest text-luxury-gold uppercase mt-1">20 Positive Reviews</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Reviews Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500">
+          {(showAllReviews ? REVIEWS_DATA : REVIEWS_DATA.slice(0, 6)).map((review) => (
+            <div 
+              key={review.id} 
+              className="bg-luxury-surface/40 border border-luxury-border p-6 rounded-[2px] hover:border-luxury-gold/30 transition-all duration-300 flex flex-col justify-between animate-fade-in"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  {/* Rating stars */}
+                  <div className="flex text-luxury-gold gap-0.5">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} size={12} className="fill-luxury-gold stroke-none" />
+                    ))}
+                  </div>
+                  <span className="font-mono text-[10px] text-luxury-muted tracking-wide">
+                    {review.date}
+                  </span>
+                </div>
+                
+                <p className="font-sans text-[13px] text-luxury-secondary font-light leading-relaxed italic mb-6">
+                  "{review.comment}"
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3 pt-4 border-t border-white/[0.03]">
+                <div className="flex items-center justify-center w-9 h-9 rounded-full bg-luxury-bg border border-luxury-gold/20 text-luxury-gold font-mono text-[11px] font-semibold">
+                  {review.initials}
+                </div>
+                <div className="text-left">
+                  <h5 className="font-sans text-[13px] font-medium text-luxury-primary">
+                    {review.name}
+                  </h5>
+                  <p className="font-mono text-[9px] tracking-widest text-luxury-secondary uppercase">
+                    {review.role} {review.company && `· ${review.company}`}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Action Toggle Button */}
+        <div className="mt-12 text-center">
+          <button
+            onClick={() => setShowAllReviews(!showAllReviews)}
+            className="border border-luxury-gold text-luxury-gold bg-transparent px-8 py-3.5 text-[11px] tracking-[0.15em] font-mono uppercase rounded-[2px] transition-all duration-300 hover:bg-luxury-gold hover:text-luxury-bg hover:shadow-[0_0_15px_rgba(184,151,58,0.2)] cursor-pointer"
+          >
+            {showAllReviews ? 'COLLAPSE REVIEWS' : 'SHOW ALL 20 POSITIVE REVIEWS'}
+          </button>
+        </div>
+      </section>
 
       {/* RELATED EVENTS Section */}
       <section id="related-section" className="border-t border-luxury-border py-24 px-6 md:px-12 max-w-7xl mx-auto">
