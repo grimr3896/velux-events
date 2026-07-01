@@ -123,7 +123,7 @@ export default function SingleEventPage({ event, onSelectEvent, onNavigate }: Si
             </div>
 
             <div className="space-y-8">
-              {AGENDA_DATA.map((agenda, index) => (
+              {(event.agenda || AGENDA_DATA).map((agenda, index) => (
                 <div
                   key={index}
                   className="border-l border-luxury-gold pl-6 py-1 transition-all hover:border-l-2 hover:pl-7 duration-200"
@@ -151,7 +151,7 @@ export default function SingleEventPage({ event, onSelectEvent, onNavigate }: Si
             </div>
 
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6 font-sans text-[14px] text-luxury-secondary font-light">
-              {WHO_SHOULD_ATTEND.map((bullet, index) => (
+              {(event.whoShouldAttend || WHO_SHOULD_ATTEND).map((bullet, index) => (
                 <li key={index} className="flex items-start space-x-3">
                   <span className="text-luxury-gold mt-1">✓</span>
                   <span>{bullet}</span>
@@ -159,6 +159,38 @@ export default function SingleEventPage({ event, onSelectEvent, onNavigate }: Si
               ))}
             </ul>
           </section>
+
+          {/* Event Review Gallery */}
+          {event.reviewImages && event.reviewImages.length > 0 && (
+            <section id="event-review-gallery" className="border-t border-luxury-border pt-12">
+              <div className="pb-6 mb-8">
+                <span className="font-mono text-[11px] tracking-[0.15em] text-luxury-gold uppercase font-semibold block">
+                  / EVENT PREVIEWS & ATMOSPHERE
+                </span>
+                <h3 className="font-display font-light text-[24px] md:text-[28px] text-luxury-primary tracking-tight mt-1">
+                  Candid Moments & Venue Gallery
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {event.reviewImages.slice(0, 4).map((imgUrl, index) => (
+                  <div 
+                    key={index} 
+                    className="relative aspect-square overflow-hidden group rounded-[2px] border border-white/[0.05] hover:border-luxury-gold/30 transition-all duration-300"
+                  >
+                    <img 
+                      src={imgUrl} 
+                      alt={`Review moment ${index + 1}`}
+                      referrerPolicy="no-referrer"
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    {/* Subtle overlay */}
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-300" />
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
         </div>
 
         {/* Right Column Sticky Panel (35%) */}
@@ -184,7 +216,7 @@ export default function SingleEventPage({ event, onSelectEvent, onNavigate }: Si
                   <Clock size={18} className="text-luxury-gold" />
                   <div>
                     <p className="font-mono text-[9px] tracking-widest text-luxury-muted uppercase">Time Schedule</p>
-                    <p className="font-sans text-[13px] text-luxury-primary font-light">08:00 AM — 06:00 PM</p>
+                    <p className="font-sans text-[13px] text-luxury-primary font-light">{event.time || "08:00 AM — 06:00 PM"}</p>
                   </div>
                 </div>
 
@@ -208,6 +240,20 @@ export default function SingleEventPage({ event, onSelectEvent, onNavigate }: Si
                   </div>
                 </div>
               </div>
+
+              {event.highlights && event.highlights.length > 0 && (
+                <div className="border-t border-white/[0.03] pt-6 mt-6">
+                  <p className="font-mono text-[9px] tracking-widest text-luxury-muted uppercase mb-3">Key Highlights</p>
+                  <ul className="space-y-2 font-sans text-[12px] text-luxury-secondary font-light">
+                    {event.highlights.map((highlight, idx) => (
+                      <li key={idx} className="flex items-center gap-2">
+                        <span className="w-1 h-1 bg-luxury-gold rounded-full" />
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
 
 

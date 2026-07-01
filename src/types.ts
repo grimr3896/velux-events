@@ -1,3 +1,9 @@
+export interface AgendaItem {
+  time: string;
+  title: string;
+  speaker: string;
+}
+
 export interface EventItem {
   id: string;
   title: string;
@@ -15,6 +21,11 @@ export interface EventItem {
   isOverdue?: boolean;
   imageAccentColor?: string; // CSS-based color styling
   imageUrl?: string;
+  reviewImages?: string[]; // 4 premium review/atmosphere images
+  time?: string; // e.g. "10:00 AM — 12:00 PM"
+  agenda?: AgendaItem[];
+  whoShouldAttend?: string[];
+  highlights?: string[];
 }
 
 export interface PackageItem {

@@ -2,6 +2,119 @@ import { EventItem, PackageItem, TestimonialItem, ReviewItem } from './types';
 
 export const EVENTS_DATA: EventItem[] = [
   {
+    id: 'taco-tequila-fiesta',
+    title: 'Taco & Tequila Street Fiesta',
+    date: 'Aug 16, 2026',
+    fullDate: 'Sunday, August 16, 2026',
+    venue: 'Centennial Hills Park Amphitheater',
+    city: 'Las Vegas',
+    price: 45,
+    formattedPrice: '$45',
+    organizer: 'By Las Vegas Culinary Curation',
+    isTrending: true,
+    isFeatured: true,
+    time: '12:00 PM — 9:00 PM',
+    description: "Get ready to fiesta with spicy tacos, bold tequila, and good vibes at the Taco & Tequila Street Fiesta!\n\nIndulge in an extraordinary afternoon and evening celebrating the finest artisanal street tacos, premium craft tequila flights, and vibrant music curators under the Las Vegas sky. Features live Latin jazz, interactive cocktail mixology workshops, and gourmet taco selections from top regional culinary stars.",
+    imageUrl: '/taco_tequila_fiesta.jpg',
+    highlights: [
+      '9 hours live',
+      'Ages 21+',
+      'In person',
+      'Centennial Hills Park Amphitheater',
+      'Doors at 11:30 AM'
+    ],
+    whoShouldAttend: [
+      'Taco enthusiasts who appreciate artisanal culinary craft',
+      'Tequila lovers wanting to taste rare and premium labels',
+      'People looking for vibrant live Latin jazz and social networking',
+      'Locals and visitors desiring a premium Las Vegas culinary experience'
+    ],
+    agenda: [
+      {
+        time: '12:00 PM — 02:00 PM',
+        title: 'Opening Pour & Acoustic Latin Beats',
+        speaker: 'Welcome Margaritas & Tasting Lounge'
+      },
+      {
+        time: '02:00 PM — 04:00 PM',
+        title: 'Taco Showdown: Regional Chef Battle',
+        speaker: 'Vegas Culinary Stars & Live Judging'
+      },
+      {
+        time: '04:00 PM — 06:00 PM',
+        title: 'Tequila Mixology Masterclass',
+        speaker: 'Led by Certified Master Mezcaliers'
+      },
+      {
+        time: '06:00 PM — 08:30 PM',
+        title: 'Golden Hour Street Fiesta & Live Latin Jazz Orchestras',
+        speaker: 'Main Stage Concert & DJ Sets'
+      },
+      {
+        time: '08:30 PM — 09:00 PM',
+        title: 'Fiesta Finale & Fireworks Display',
+        speaker: 'Closing Toast & Presentation'
+      }
+    ]
+  },
+  {
+    id: 'ai-skills-workshop',
+    title: 'AI Skills Workshop: Build Your First AI Tool in 2 Hours — No Coding Needed',
+    date: 'Aug 5, 2026',
+    fullDate: 'Wednesday, August 5, 2026',
+    venue: 'Civic Hall - The Bernard Goldstein Center',
+    city: 'New York',
+    price: 'FREE',
+    formattedPrice: 'FREE',
+    organizer: 'By oliver events',
+    isTrending: true,
+    isFeatured: true,
+    time: '10:00 AM — 12:00 PM',
+    description: "Get ready to create your very own AI tool from scratch in just two hours—no coding skills required!\n\nYou don't need a computer science degree.\n\nYou don't need to know how to code.\n\nYou just need 2 hours — and we'll show you how to build AI tools that save you 10+ hours every single week.\n\n🤖 WHAT YOU'LL BUILD IN THIS WORKSHOP:\n• An AI assistant customized to your business or job\n• An automated workflow that handles repetitive tasks for you\n• A prompt system that makes ChatGPT 10x more powerful\n\n📦 WHAT'S INCLUDED:\n• 2-hour live hands-on workshop (bring your laptop)\n• Free AI Toolkit PDF (worth $47) — yours to keep\n• Access to our private community of 2,000+ AI learners\n• Recorded replay sent to all attendees within 24 hours\n• Certificate of completion\n\n⚠️ SEATS ARE LIMITED TO 50 PEOPLE\nWe keep this small on purpose so every attendee gets personal attention. Early Bird tickets sell out fast. Grab yours now before the price goes up.",
+    imageUrl: 'https://i.pinimg.com/1200x/c8/57/93/c85793cc309c0b82e20138f47625b803.jpg',
+    highlights: [
+      '2 hours live',
+      'Ages 18+',
+      'In person',
+      'Paid parking',
+      'Doors at 9:15 AM'
+    ],
+    whoShouldAttend: [
+      'Freelancers who want to charge more and work less',
+      'Small business owners drowning in admin tasks',
+      'Job seekers who want to stand out with AI skills',
+      'Employees who want to be the most valuable person in the room',
+      'Complete beginners who\'ve heard about AI but don\'t know where to start'
+    ],
+    agenda: [
+      {
+        time: '10:00 AM — 10:20 AM',
+        title: 'Why AI is the #1 skill of 2026 (and how to use it TODAY)',
+        speaker: 'oliver events — Introduction & Vision'
+      },
+      {
+        time: '10:20 AM — 10:40 AM',
+        title: 'Live Demo: Watch us build an AI tool from scratch',
+        speaker: 'oliver events — Core Walkthrough'
+      },
+      {
+        time: '10:40 AM — 11:20 AM',
+        title: 'Hands-on: You build your own',
+        speaker: 'Guided Session (We guide you step-by-step)'
+      },
+      {
+        time: '11:20 AM — 11:45 AM',
+        title: 'Advanced tricks: Prompts the pros use',
+        speaker: 'oliver events — Prompt Engineering Masterclass'
+      },
+      {
+        time: '11:45 AM — 12:00 PM',
+        title: 'Q&A + Networking',
+        speaker: 'Interactive wrap up & next steps'
+      }
+    ]
+  },
+  {
     id: 'africatech-2025',
     title: 'Silicon Valley Tech Summit 2025',
     date: 'Oct 12, 2025',
@@ -235,6 +348,7 @@ export const EVENTS_DATA: EventItem[] = [
     formattedPrice: '$175',
     organizer: 'Presented by Miami Yacht Charters',
     isFeatured: true,
+    isPast: true,
     description: 'An unforgettable premium cruise along the beautiful coast of Miami Beach. Enjoy gourmet coastal seafood bites, fresh tropical mocktails, and live acoustic ambient melodies as the golden sun dips into the Atlantic Ocean. Strictly limited boarding slots.',
     imageUrl: 'https://i.pinimg.com/1200x/a9/41/3e/a9413e56fb2e0848c4b0410aad2da45c.jpg',
   },
@@ -249,6 +363,7 @@ export const EVENTS_DATA: EventItem[] = [
     formattedPrice: '$30',
     organizer: 'Presented by Vinyl Collective NYC',
     isTrending: true,
+    isPast: true,
     description: 'Step back in time with an all-vinyl DJ set celebrating the golden eras of funk, soul, disco, and early Motown. Dance to warm analog sounds, rare grooves, and custom vintage-inspired visual projections under ambient retro lighting.',
     imageUrl: 'https://i.pinimg.com/736x/ab/bd/73/abbd73bbd16fbec71ffdf67b1cb025bf.jpg',
   },
@@ -262,6 +377,7 @@ export const EVENTS_DATA: EventItem[] = [
     price: 65,
     formattedPrice: '$65',
     organizer: 'Presented by South Beach Culinary Club',
+    isPast: true,
     description: 'A beachfront culinary spectacle celebrating the freshest catch of the day. Sample giant prawns, lobster tail, charcoal-grilled snapper, and authentic key lime treats prepared by local masters. Enjoy live local bands on the white sands.',
     imageUrl: 'https://i.pinimg.com/1200x/ef/a3/47/efa347ef717105aa135a57271cd70d9e.jpg',
   },
@@ -275,6 +391,7 @@ export const EVENTS_DATA: EventItem[] = [
     price: 45,
     formattedPrice: '$45',
     organizer: 'Presented by Specialty Coffee Association',
+    isPast: true,
     description: 'An aromatic tasting and evaluation workshop exploring high-grade Arabica beans from different micro-climates. Learn standard SCA cupping protocols, fragrance-to-aroma transitions, and perfect brewing temperatures.',
     imageUrl: 'https://i.pinimg.com/736x/86/6e/3c/866e3cccf297bcfb9659bf5ba916a2c1.jpg',
   },
@@ -289,6 +406,7 @@ export const EVENTS_DATA: EventItem[] = [
     formattedPrice: '$60',
     organizer: 'Presented by Acoustic California',
     isFeatured: true,
+    isPast: true,
     description: 'A highly intimate unplugged live performance featuring award-winning alternative singer-songwriters. Nestled in a secluded redwood clearing of Muir Woods with simple warm fairy lighting, offering an organic and deeply personal connection with the music.',
     imageUrl: 'https://i.pinimg.com/736x/bf/90/c2/bf90c2b6cc3b24be0c872e825c59e380.jpg',
   },
@@ -302,6 +420,7 @@ export const EVENTS_DATA: EventItem[] = [
     price: 'FREE',
     formattedPrice: 'FREE',
     organizer: 'Presented by Great Lakes Tourism Board',
+    isPast: true,
     description: 'A vibrant sailboat regatta showcasing stunning sails and competitive racing along the waters of Lake Michigan. Watch from the grassy club lawns, enjoy local fish fry stalls, live music, and a spectacular sunset over the lake.',
     imageUrl: 'https://i.pinimg.com/736x/78/b2/58/78b258df8d2f5bbc7ec5303bbb0ba75c.jpg',
   },
@@ -316,6 +435,7 @@ export const EVENTS_DATA: EventItem[] = [
     formattedPrice: '$150',
     organizer: 'Presented by Silicon Valley Capital Partners',
     isTrending: true,
+    isPast: true,
     description: 'An elite networking evening connecting high-potential tech founders with venture capital partners and angel investors. Enjoy curated pitches, structured speed-networking, panel discussions on regional trends, and a gourmet three-course dinner.',
     imageUrl: 'https://i.pinimg.com/1200x/90/7e/7d/907e7d060e7408ed7dcce2c4eab50699.jpg',
   },
@@ -329,6 +449,7 @@ export const EVENTS_DATA: EventItem[] = [
     price: 35,
     formattedPrice: '$35',
     organizer: 'Presented by Craft & Wood West Coast',
+    isPast: true,
     description: 'An exclusive exhibition of premium, minimalist indoor and outdoor furniture designed using sustainably-sourced hardwoods. Highlighting the harmony between raw natural elements and sleek, contemporary structural geometry.',
     imageUrl: 'https://i.pinimg.com/1200x/96/ec/6d/96ec6d7945cec81cc913a9d5fd8c6dcc.jpg',
   },
@@ -343,8 +464,278 @@ export const EVENTS_DATA: EventItem[] = [
     formattedPrice: '$55',
     organizer: 'Presented by Streetwear Coalition US',
     isFeatured: true,
+    isPast: true,
     description: 'A high-octane outdoor runway highlighting the raw energy of urban fashion and local streetwear brands. Watch models strut through repurposed industrial spaces, accompanied by underground hip-hop selectors, live graffiti murals, and pop-up retail booths.',
     imageUrl: 'https://i.pinimg.com/1200x/95/50/16/9550166f9b5990397aebc5339255ce25.jpg',
+  },
+  {
+    id: 'sunset-rooftop-sessions-2026',
+    title: 'Sunset Rooftop Sessions: Solstice Beats',
+    date: 'Jul 18, 2026',
+    fullDate: 'Saturday, July 18, 2026',
+    venue: 'Aloft Hotel Rooftop Lounge',
+    city: 'Los Angeles',
+    price: 50,
+    formattedPrice: '$50',
+    organizer: 'Presented by LA House Collective',
+    isTrending: true,
+    time: '6:00 PM — 11:00 PM',
+    description: "Following last year's historic turnout, Sunset Rooftop Sessions returns to Aloft Hotel for an unmatched summer solstice gathering under the Los Angeles sky.\n\nExperience an intimate curation of deep house, organic ambient, and melodic techno selectors. Features custom immersive projection mapping on the skyline, artisanal botanical cocktails, and premium ambient progressions for true music lovers.",
+    imageUrl: 'https://i.pinimg.com/1200x/79/30/0c/79300ceec670c8b6f122acca7dcc2b9c.jpg',
+    highlights: [
+      '5 hours live audio',
+      'Ages 21+',
+      'Skyline sunset view',
+      'Artisanal cocktails',
+      'Immersive laser projection'
+    ],
+    whoShouldAttend: [
+      'Deep house and electronic music enthusiasts',
+      'Patrons looking for high-end nightlife with a view',
+      'Audiophiles who appreciate premium custom sound systems'
+    ],
+    agenda: [
+      {
+        time: '06:00 PM — 07:30 PM',
+        title: 'Golden Hour Welcoming Sets',
+        speaker: 'Opening Ambient Mixes & Curated Bites'
+      },
+      {
+        time: '07:30 PM — 09:30 PM',
+        title: 'Deep House Sunset Progression',
+        speaker: 'International Selector Showcase'
+      },
+      {
+        time: '09:30 PM — 11:00 PM',
+        title: 'Melodic Techno Headliner Set',
+        speaker: 'Live Visual Mapping and Closing Mix'
+      }
+    ]
+  },
+  {
+    id: 'napa-wine-jazz-2026',
+    title: 'Napa Valley Reserve Wine & Jazz',
+    date: 'Aug 23, 2026',
+    fullDate: 'Sunday, August 23, 2026',
+    venue: 'Laureat Gardens',
+    city: 'Napa Valley',
+    price: 135,
+    formattedPrice: '$135',
+    organizer: 'Presented by Wine Country Entertainment',
+    isTrending: true,
+    time: '3:00 PM — 8:00 PM',
+    description: "An elegant sensory journey pairing masterfully aged Napa Valley reserve wines with live acoustic jazz ensembles.\n\nRelax on the manicured lawns of Laureat Gardens as twilight sets over the vineyards. Ticket includes curated tasting flights of select Cabernet Sauvignons, premium artisanal cheese boards, and a souvenir crystal tasting glass.",
+    imageUrl: 'https://i.pinimg.com/1200x/65/09/22/650922e836ba0684e95af4b52561f96f.jpg',
+    highlights: [
+      'Napa Valley vineyard setting',
+      'Ages 21+',
+      'Premium wine tasting flights',
+      'Live jazz quartets',
+      'Artisanal charcuterie'
+    ],
+    whoShouldAttend: [
+      'Wine connoisseurs and enthusiasts',
+      'Jazz lovers looking for an acoustic live show outdoors',
+      'Couples and groups looking for a refined weekend experience'
+    ],
+    agenda: [
+      {
+        time: '03:00 PM — 04:30 PM',
+        title: 'Arrival & Welcome Chardonnay Pouring',
+        speaker: 'Acoustic Guitar Duo & Vineyard Tour'
+      },
+      {
+        time: '04:30 PM — 06:30 PM',
+        title: 'Reserve Tasting Flight & Live Jazz Quartet',
+        speaker: 'Presented by Certified Master Sommeliers'
+      },
+      {
+        time: '06:30 PM — 08:00 PM',
+        title: 'Sunset Cabernet Toast & Closing Melodies',
+        speaker: 'Grand Finale Showcase'
+      }
+    ]
+  },
+  {
+    id: 'silicon-valley-summit-2026',
+    title: 'Silicon Valley Tech & AI Summit 2026',
+    date: 'Sep 12, 2026',
+    fullDate: 'Saturday, September 12, 2026',
+    venue: 'Moscone Center',
+    city: 'San Francisco',
+    price: 490,
+    formattedPrice: '$490',
+    organizer: 'Presented by Silicon Valley Tech Media',
+    isFeatured: true,
+    time: '9:00 AM — 6:00 PM',
+    description: "The nation's premier dialogue on the future of artificial intelligence, high-density LLM orchestration, and autonomous agent infrastructure.\n\nJoin 3,000+ tech founders, venture capital partners, and pioneering software engineers for intensive double-track masterclasses, product demos, fireside chats, and curated executive matchmaking.",
+    imageUrl: 'https://i.pinimg.com/1200x/c3/20/7d/c3207d2f303de1de4bf2a14fcb76bd10.jpg',
+    highlights: [
+      '30+ expert keynotes',
+      'Interactive AI product demos',
+      'Double-track sessions',
+      'Executive networking lounge',
+      'Catered lunch included'
+    ],
+    whoShouldAttend: [
+      'AI and SaaS product managers and developers',
+      'Venture capital investors seeking high-intent pipeline',
+      'Corporate directors looking for strategic technology partnerships'
+    ],
+    agenda: [
+      {
+        time: '09:00 AM — 10:30 AM',
+        title: 'Keynote: Next Generation Agentic AI Systems',
+        speaker: 'Silicon Valley Pioneer Founders'
+      },
+      {
+        time: '11:00 AM — 01:00 PM',
+        title: 'Fireside: Raising in 2026 & AI Valuation',
+        speaker: 'General Partners from Tier-1 VC Funds'
+      },
+      {
+        time: '02:00 PM — 04:30 PM',
+        title: 'Track A: LLMs in Financial Infrastructure',
+        speaker: 'CTOs of Leading Global Fintechs'
+      },
+      {
+        time: '04:30 PM — 06:00 PM',
+        title: 'Networking Reception & Cocktail Hour',
+        speaker: 'All Attendees'
+      }
+    ]
+  },
+  {
+    id: 'coastal-yacht-cruise-2026',
+    title: 'Coastal Seafood & Yacht Cruise',
+    date: 'Sep 20, 2026',
+    fullDate: 'Sunday, September 20, 2026',
+    venue: 'Miami Beach Marina',
+    city: 'Miami',
+    price: 195,
+    formattedPrice: '$195',
+    organizer: 'Presented by Miami Yacht Charters',
+    isTrending: true,
+    time: '5:00 PM — 9:00 PM',
+    description: "An ultra-premium maritime celebration of coastal gastronomy aboard a luxury triple-deck motor yacht.\n\nSet sail along the stunning Miami Beach coastline while indulging in raw oyster towers, fresh lobster ceviche, and custom hand-shaken botanical cocktails. Enjoy live ambient bossa nova as the sun slips below the horizon.",
+    imageUrl: 'https://i.pinimg.com/1200x/a9/41/3e/a9413e56fb2e0848c4b0410aad2da45c.jpg',
+    highlights: [
+      '4-hour yacht cruise',
+      'Ages 21+',
+      'Michelin-curated raw bar',
+      'Open cocktail bar',
+      'Live bossa nova quartet'
+    ],
+    whoShouldAttend: [
+      'Gastronomy and seafood lovers',
+      'Patrons looking for high-end coastal social experiences',
+      'Visitors wanting a premium Miami skyline tour'
+    ],
+    agenda: [
+      {
+        time: '05:00 PM — 05:30 PM',
+        title: 'Boarding & Champagne Welcome Toast',
+        speaker: 'Main Yacht Deck'
+      },
+      {
+        time: '05:30 PM — 07:30 PM',
+        title: 'Sunset Cruise & Gastronomy Showcase',
+        speaker: 'Live Oyster Shucking & Mixology Station'
+      },
+      {
+        time: '07:30 PM — 09:00 PM',
+        title: 'Starlight Return & Acoustic Sets',
+        speaker: 'Dessert Pairing & Bossa Nova'
+      }
+    ]
+  },
+  {
+    id: 'fashion-week-gala-2026',
+    title: 'New York Autumn Fashion Week Gala',
+    date: 'Oct 11, 2026',
+    fullDate: 'Sunday, October 11, 2026',
+    venue: 'The Shed, Hudson Yards',
+    city: 'New York',
+    price: 280,
+    formattedPrice: '$280',
+    organizer: 'Presented by Gotham Fashion Guild',
+    isTrending: true,
+    time: '7:00 PM — 11:30 PM',
+    description: "Witness the intersection of avant-garde design and sustainable luxury at our exclusive Autumn 2026 fashion showcase.\n\nFeaturing runway collections from eight revolutionary designers representing Milan, Tokyo, and New York. Ticket includes front-row viewing entry, access to the VIP Champagne Lounge, and participation in the curated ready-to-wear retail trunk show.",
+    imageUrl: 'https://i.pinimg.com/1200x/ab/e4/54/abe454ed634ef4ec4bf3f55d00524ed1.jpg',
+    highlights: [
+      '8 live couture runways',
+      'Exclusive Hudson Yards location',
+      'VIP front-row access',
+      'Free-flowing champagne lounge',
+      'Runway retail trunk show access'
+    ],
+    whoShouldAttend: [
+      'Fashion industry executives and designers',
+      'Textile pioneers interested in circular sustainability',
+      'Patrons appreciating high-end avant-garde art'
+    ],
+    agenda: [
+      {
+        time: '07:00 PM — 08:00 PM',
+        title: 'Arrivals, Red Carpet & Welcome Cocktails',
+        speaker: 'Media Gallery & Champagne Foyer'
+      },
+      {
+        time: '08:00 PM — 09:30 PM',
+        title: 'Avant-Garde Runway Showcase',
+        speaker: '8 International Design Houses'
+      },
+      {
+        time: '09:30 PM — 11:30 PM',
+        title: 'Trunk Show & Afterparty',
+        speaker: 'Live Selectors & Designer Meetups'
+      }
+    ]
+  },
+  {
+    id: 'jazz-champagne-parlor-2026',
+    title: 'Greenwich Village Jazz & Champagne Parlor',
+    date: 'Nov 14, 2026',
+    fullDate: 'Saturday, November 14, 2026',
+    venue: 'The Blue Note, Greenwich Village',
+    city: 'New York',
+    price: 120,
+    formattedPrice: '$120',
+    organizer: 'Presented by Greenwich Jazz Association',
+    isTrending: true,
+    time: '8:00 PM — 11:30 PM',
+    description: "Relax in our luxurious, candle-lit music parlor for a world-class performance of soulful acoustic jazz.\n\nAccompanied by premium reserve champagne tasting flights and gourmet hot hors d'oeuvres curated by the Michelin-starred Blue Note culinary team.",
+    imageUrl: 'https://i.pinimg.com/1200x/c7/2e/7c/c72e7c451c58d102c4247a107354be90.jpg',
+    highlights: [
+      'Intimate historic jazz parlor',
+      'World-renowned performers',
+      'Reserve champagne flights',
+      'Michelin-curated small plates',
+      'Valet parking available'
+    ],
+    whoShouldAttend: [
+      'Jazz purists and instrumental enthusiasts',
+      'Patrons desiring a high-end, classic New York evening',
+      'Groups celebrating special milestones'
+    ],
+    agenda: [
+      {
+        time: '08:00 PM — 08:30 PM',
+        title: 'Doors Open & Champagne Welcome',
+        speaker: 'The Blue Note Parlor'
+      },
+      {
+        time: '08:30 PM — 10:00 PM',
+        title: 'Main Instrumental Acoustic Set',
+        speaker: 'The Greenwich Village Quintet'
+      },
+      {
+        time: '10:00 PM — 11:30 PM',
+        title: 'Late Night Jam & Tasting Dialogue',
+        speaker: 'Collaborative Live Mix & Dessert Pairing'
+      }
+    ]
   }
 ];
 
@@ -662,3 +1053,60 @@ export const REVIEWS_DATA: ReviewItem[] = [
     date: '2 weeks ago'
   }
 ];
+
+const GALLERY_POOL_1 = [
+  'https://i.pinimg.com/1200x/c3/20/7d/c3207d2f303de1de4bf2a14fcb76bd10.jpg',
+  'https://i.pinimg.com/1200x/79/30/0c/79300ceec670c8b6f122acca7dcc2b9c.jpg',
+  'https://i.pinimg.com/736x/94/fb/94/94fb944160b705d86d10595b469d7a82.jpg',
+  'https://i.pinimg.com/1200x/9d/1e/07/9d1e0795ab13c08779293f2eed437777.jpg',
+];
+
+const GALLERY_POOL_2 = [
+  'https://i.pinimg.com/1200x/65/09/22/650922e836ba0684e95af4b52561f96f.jpg',
+  'https://i.pinimg.com/1200x/ab/e4/54/abe454ed634ef4ec4bf3f55d00524ed1.jpg',
+  'https://i.pinimg.com/736x/d0/ce/16/d0ce165ec33f58775dfa5ce61f4f9c0.jpg',
+  'https://i.pinimg.com/736x/37/45/34/3745341c6051dcf60de95589f7edd3e6.jpg',
+];
+
+const GALLERY_POOL_3 = [
+  'https://i.pinimg.com/1200x/43/17/14/431714b2cee15ce7fc11a08c540b96b6.jpg',
+  'https://i.pinimg.com/1200x/c7/2e/7c/c72e7c451c58d102c4247a107354be90.jpg',
+  'https://i.pinimg.com/1200x/60/6f/d5/606fd57f29aef577600b98183d5fd3fe.jpg',
+  'https://i.pinimg.com/1200x/63/1b/1b/631b1b64f8214fef3c1754d1540cdaad.jpg',
+];
+
+const GALLERY_POOL_4 = [
+  'https://i.pinimg.com/736x/da/65/b7/da65b7f0cbbc42c036bb041f7622a997.jpg',
+  'https://i.pinimg.com/736x/08/22/b9/0822b9196846daa7362e93fc298c7e47.jpg',
+  'https://i.pinimg.com/1200x/f1/e7/8d/f1e78d2d6ad49fe23a16bef8ce668885.jpg',
+  'https://i.pinimg.com/236x/fc/43/c0/fc43c0fe7311e54caa2fc12016d1606d.jpg',
+];
+
+const GALLERY_POOL_5 = [
+  'https://i.pinimg.com/1200x/a9/41/3e/a9413e56fb2e0848c4b0410aad2da45c.jpg',
+  'https://i.pinimg.com/736x/ab/bd/73/abbd73bbd16fbec71ffdf67b1cb025bf.jpg',
+  'https://i.pinimg.com/1200x/ef/a3/47/efa347ef717105aa135a57271cd70d9e.jpg',
+  'https://i.pinimg.com/736x/86/6e/3c/866e3cccf297bcfb9659bf5ba916a2c1.jpg',
+];
+
+const GALLERY_POOL_6 = [
+  'https://i.pinimg.com/736x/bf/90/c2/bf90c2b6cc3b24be0c872e825c59e380.jpg',
+  'https://i.pinimg.com/736x/78/b2/58/78b258df8d2f5bbc7ec5303bbb0ba75c.jpg',
+  'https://i.pinimg.com/1200x/90/7e/7d/907e7d060e7408ed7dcce2c4eab50699.jpg',
+  'https://i.pinimg.com/1200x/96/ec/6d/96ec6d7945cec81cc913a9d5fd8c6dcc.jpg',
+];
+
+const GALLERY_POOLS = [
+  GALLERY_POOL_1,
+  GALLERY_POOL_2,
+  GALLERY_POOL_3,
+  GALLERY_POOL_4,
+  GALLERY_POOL_5,
+  GALLERY_POOL_6
+];
+
+// Enrich each event with exactly 4 gorgeous review images dynamically
+EVENTS_DATA.forEach((event, idx) => {
+  event.reviewImages = GALLERY_POOLS[idx % GALLERY_POOLS.length];
+});
+

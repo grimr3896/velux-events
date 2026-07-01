@@ -13,9 +13,9 @@ export default function HomePage({ onNavigate, onSelectEvent }: HomePageProps) {
   const [subscribed, setSubscribed] = useState(false);
 
   // Filter events according to requirements
-  const featuredEvent = EVENTS_DATA.find((e) => e.id === 'africatech-2025') || EVENTS_DATA[0];
+  const featuredEvent = EVENTS_DATA.find((e) => e.id === 'taco-tequila-fiesta') || EVENTS_DATA[0];
   const secondaryFeatured = EVENTS_DATA.filter(
-    (e) => e.id === 'sundowner-sessions' || e.id === 'food-festival'
+    (e) => e.id === 'ai-skills-workshop' || e.id === 'africatech-2025'
   );
   const trendingEvents = EVENTS_DATA.filter((e) => e.isTrending);
 

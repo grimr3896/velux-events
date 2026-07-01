@@ -13,10 +13,16 @@ export default function App() {
   const [activePage, setActivePage] = useState<ActivePage>('home');
   const [selectedEventId, setSelectedEventId] = useState<string>('africatech-2025');
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
+  const [aboutTab, setAboutTab] = useState<'mission' | 'privacy' | 'terms'>('mission');
 
   // Smooth editorial page transition handler
-  const handleNavigate = (page: ActivePage) => {
+  const handleNavigate = (page: ActivePage, tab?: 'mission' | 'privacy' | 'terms') => {
     setIsTransitioning(true);
+    if (tab) {
+      setAboutTab(tab);
+    } else if (page === 'about') {
+      setAboutTab('mission');
+    }
     setTimeout(() => {
       setActivePage(page);
       window.scrollTo({ top: 0, behavior: 'auto' });
@@ -52,7 +58,7 @@ export default function App() {
       case 'submit':
         return <SubmitPage />;
       case 'about':
-        return <AboutPage onNavigate={handleNavigate} />;
+        return <AboutPage onNavigate={handleNavigate} activeTab={aboutTab} onChangeTab={setAboutTab} />;
       default:
         return <HomePage onNavigate={handleNavigate} onSelectEvent={handleSelectEvent} />;
     }

@@ -2,7 +2,7 @@ import React from 'react';
 import { ActivePage } from '../types';
 
 interface FooterProps {
-  onNavigate: (page: ActivePage) => void;
+  onNavigate: (page: ActivePage, tab?: 'mission' | 'privacy' | 'terms') => void;
 }
 
 export default function Footer({ onNavigate }: FooterProps) {
@@ -118,29 +118,29 @@ export default function Footer({ onNavigate }: FooterProps) {
           <ul className="space-y-3 font-sans text-[13px] text-luxury-secondary font-light">
             <li>
               <button
-                onClick={() => onNavigate('about')}
-                className="hover:text-luxury-gold transition-colors text-left"
+                onClick={() => onNavigate('about', 'mission')}
+                className="hover:text-luxury-gold transition-colors text-left cursor-pointer"
               >
                 About Our Mission
               </button>
             </li>
             <li>
-              <a href="mailto:info@velux.luxury" className="hover:text-luxury-gold transition-colors block">
+              <a href="mailto:info@velux.luxury" className="hover:text-luxury-gold transition-colors block cursor-pointer">
                 Contact Concierge
               </a>
             </li>
             <li>
               <button
-                onClick={() => onNavigate('about')}
-                className="hover:text-luxury-gold transition-colors text-left"
+                onClick={() => onNavigate('about', 'privacy')}
+                className="hover:text-luxury-gold transition-colors text-left cursor-pointer"
               >
                 Privacy Protocol
               </button>
             </li>
             <li>
               <button
-                onClick={() => onNavigate('about')}
-                className="hover:text-luxury-gold transition-colors text-left"
+                onClick={() => onNavigate('about', 'terms')}
+                className="hover:text-luxury-gold transition-colors text-left cursor-pointer"
               >
                 Terms of Placement
               </button>
@@ -149,32 +149,17 @@ export default function Footer({ onNavigate }: FooterProps) {
         </div>
       </div>
 
-      {/* Social Row */}
-      <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-x-8 gap-y-3 border-t border-luxury-border py-8 mb-8">
-        {['Instagram', 'Twitter/X', 'LinkedIn', 'TikTok'].map((social) => (
-          <a
-            key={social}
-            href={`https://${social.toLowerCase().replace('/x', '')}.com/velux`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-[11px] tracking-[0.15em] text-luxury-secondary uppercase hover:text-luxury-gold transition-colors duration-300"
-          >
-            {social}
-          </a>
-        ))}
-      </div>
-
       {/* Bottom Bar */}
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between border-t border-white/[0.03] pt-6 font-sans text-[12px] text-luxury-muted">
         <div className="mb-3 sm:mb-0">
           <span>&copy; {new Date().getFullYear()} VELUX Luxury Promotion. Crafted in the USA.</span>
         </div>
         <div className="flex space-x-6">
-          <button onClick={() => onNavigate('about')} className="hover:text-luxury-gold transition-colors">
+          <button onClick={() => onNavigate('about', 'privacy')} className="hover:text-luxury-gold transition-colors cursor-pointer">
             Privacy Policy
           </button>
           <span>·</span>
-          <button onClick={() => onNavigate('about')} className="hover:text-luxury-gold transition-colors">
+          <button onClick={() => onNavigate('about', 'terms')} className="hover:text-luxury-gold transition-colors cursor-pointer">
             Terms of Use
           </button>
         </div>

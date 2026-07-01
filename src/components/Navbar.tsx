@@ -4,7 +4,7 @@ import { ActivePage } from '../types';
 
 interface NavbarProps {
   activePage: ActivePage;
-  onNavigate: (page: ActivePage) => void;
+  onNavigate: (page: ActivePage, tab?: 'mission' | 'privacy' | 'terms') => void;
 }
 
 export default function Navbar({ activePage, onNavigate }: NavbarProps) {

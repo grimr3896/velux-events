@@ -99,6 +99,29 @@ export default function EventCard({ event, onClick, variant = 'default' }: Event
         <p className="font-sans text-[13px] text-luxury-secondary font-light mb-4 line-clamp-1">
           {event.venue}
         </p>
+
+        {/* Mini Review Images Preview Row */}
+        {event.reviewImages && event.reviewImages.length > 0 && (
+          <div className="flex items-center gap-1.5 mb-4 mt-1">
+            <span className="font-mono text-[9px] text-luxury-muted uppercase tracking-widest mr-1">
+              PEEK:
+            </span>
+            <div className="flex -space-x-1.5 overflow-hidden">
+              {event.reviewImages.slice(0, 4).map((img, i) => (
+                <img
+                  key={i}
+                  src={img}
+                  alt="Review thumbnail"
+                  referrerPolicy="no-referrer"
+                  className="inline-block h-5 w-5 rounded-full object-cover ring-1 ring-luxury-bg hover:scale-125 transition-transform duration-300"
+                />
+              ))}
+            </div>
+            <span className="font-mono text-[9px] text-luxury-gold/70 tracking-tight ml-1">
+              (4 Moments)
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Footer Details */}
